@@ -1,0 +1,21 @@
+---
+services:
+  code-server:
+    build: .
+    image: ireshmm/vscode-web:latest
+    container_name: vscode-web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=password #optional
+      - SUDO_PASSWORD=password #optional
+      - DEFAULT_WORKSPACE=/config/workspace #optional
+    volumes:
+      - config:/config
+    ports:
+      - 8443:8443
+    restart: unless-stopped
+
+volumes:
+  config:
