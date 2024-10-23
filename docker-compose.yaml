@@ -13,6 +13,7 @@ services:
       - DEFAULT_WORKSPACE=/config/workspace #optional
     volumes:
       - config:/config
+      - ./keybindings.json:/config/data/User/keybindings.json
     ports:
       - 8443:8443
     restart: unless-stopped
